@@ -2,6 +2,21 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
+      <entry key="BasicTextFieldWithDropdownMenuPreview">
+        <State />
+      </entry>
+      <entry key="CustomDropdownMenuPreview">
+        <State />
+      </entry>
+      <entry key="CustomDropdownMenuPreview1">
+        <State />
+      </entry>
+      <entry key="DropdownMenuExamplePreview">
+        <State />
+      </entry>
+      <entry key="PersonalInfoScreenPreview">
+        <State />
+      </entry>
       <entry key="app">
         <State />
       </entry>

@@ -30,7 +30,13 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.uzb_khiva.datashop_parts.model.Tuman
+import com.uzb_khiva.datashop_parts.model.Viloyat
+import com.uzb_khiva.datashop_parts.utils.getTumanByViloyatId
+import com.uzb_khiva.datashop_parts.utils.viloyatlar
 import com.uzb_khiva.datashop_parts.views.ButtonCard
+import com.uzb_khiva.datashop_parts.views.CustomDropdownMenuTuman
+import com.uzb_khiva.datashop_parts.views.CustomDropdownMenuViloyat
 import com.uzb_khiva.datashop_parts.views.PersonalInfoTextFieldItem
 
 @Composable
@@ -62,16 +68,20 @@ fun PersonalInfoScreen() {
         mutableStateOf("")
     }
 
-    var region by remember {
-        mutableStateOf("")
+    var selectRegion by remember {
+        mutableStateOf(Viloyat(-1, ""))
     }
 
-    var city by remember {
-        mutableStateOf("")
+    var selectCity by remember {
+        mutableStateOf(Tuman(-1, -1, ""))
     }
 
     var address by remember {
         mutableStateOf("")
+    }
+
+    var tumanList = remember {
+        mutableStateOf(listOf<Tuman>())
     }
 
     Column(
@@ -219,22 +229,21 @@ fun PersonalInfoScreen() {
         ) {
 
             /* TODO: VILOYAT */
-            PersonalInfoTextFieldItem(
+            CustomDropdownMenuViloyat(
                 modifier = Modifier.weight(1f),
-                title = "Viloyat",
-                text = region,
-                onChange = {
-                    region = it
+                viloyatlar = viloyatlar,
+                onSelectedViloyat = {
+                    selectRegion = it
+                    tumanList.value = getTumanByViloyatId(it.id)
                 }
             )
 
             /* TODO: SHAHAR */
-            PersonalInfoTextFieldItem(
+            CustomDropdownMenuTuman(
                 modifier = Modifier.weight(1f),
-                title = "Shahar",
-                text = city,
-                onChange = {
-                    city = it
+                tumanlar = tumanList.value,
+                onSelectedTuman = {
+                    Toast.makeText(context, it.name, Toast.LENGTH_SHORT).show()
                 }
             )
 
@@ -256,7 +265,6 @@ fun PersonalInfoScreen() {
                 Toast.makeText(context, "onClick", Toast.LENGTH_SHORT).show()
             }
         )
-
 
 
     }

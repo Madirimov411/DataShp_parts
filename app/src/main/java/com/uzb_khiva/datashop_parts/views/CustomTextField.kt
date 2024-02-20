@@ -39,6 +39,7 @@ fun CustomTextField(
     leadingIcon: (@Composable () -> Unit)? = null,
     trailingIcon: (@Composable () -> Unit)? = null,
     placeholderText: String = "",
+    readOnly:Boolean = false,
     text: String,
     passwordVisible: Boolean = true,
     textStyle: TextStyle = TextStyle(),
@@ -54,6 +55,7 @@ fun CustomTextField(
         .fillMaxWidth()
         .padding(start = 3.dp),
         value = text,
+        readOnly = readOnly,
         onValueChange = {
             onValueChange(it)
         },
