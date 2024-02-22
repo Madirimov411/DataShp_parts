@@ -47,7 +47,6 @@ fun CustomTextField(
     keyboardOptions: KeyboardOptions = KeyboardOptions(),
     onValueChange: (String) -> Unit
 ) {
-
     BasicTextField(modifier = modifier
         .background(
             Color.White,

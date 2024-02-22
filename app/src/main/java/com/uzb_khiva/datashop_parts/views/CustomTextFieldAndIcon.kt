@@ -25,10 +25,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.uzb_khiva.datashop_parts.R
 import com.uzb_khiva.datashop_parts.ui.theme.CustomGray
 
@@ -40,6 +42,7 @@ fun CustomTextFieldAndIcon(
     imgPadding: Dp = 0.dp,
     placeholder: String = "",
     isPassword: Boolean = true,
+    isValid: Boolean = true,
     onValueChange: (String) -> Unit
 ) {
 
@@ -58,7 +61,13 @@ fun CustomTextFieldAndIcon(
             .fillMaxWidth()
             .background(Color.White)
     ) {
-        Text(text = title)
+        Text(
+            text = title,
+            style = TextStyle(
+                color = if(isValid) CustomGray else Color.Red,
+                fontSize = 14.sp
+            )
+            )
 
         Spacer(modifier = Modifier.height(5.dp))
 
@@ -68,7 +77,7 @@ fun CustomTextFieldAndIcon(
                 .height(40.dp)
                 .border(
                     width = 1.dp,
-                    color = CustomGray
+                    color = if(isValid) CustomGray else Color.Red,
                 )
                 .padding(horizontal = 10.dp),
             verticalAlignment = Alignment.CenterVertically
@@ -78,7 +87,7 @@ fun CustomTextFieldAndIcon(
                 modifier = Modifier.size(24.dp).padding(imgPadding),
                 painter = painterResource(id = img),
                 contentDescription = "Image",
-                tint = CustomGray
+                tint = if (isValid) CustomGray else Color.Red
             )
 
             Box(
