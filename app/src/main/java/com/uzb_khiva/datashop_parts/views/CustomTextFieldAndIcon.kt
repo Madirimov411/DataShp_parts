@@ -26,6 +26,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
@@ -64,10 +65,10 @@ fun CustomTextFieldAndIcon(
         Text(
             text = title,
             style = TextStyle(
-                color = if(isValid) CustomGray else Color.Red,
+                color = if (isValid) CustomGray else Color.Red,
                 fontSize = 14.sp
             )
-            )
+        )
 
         Spacer(modifier = Modifier.height(5.dp))
 
@@ -77,14 +78,16 @@ fun CustomTextFieldAndIcon(
                 .height(40.dp)
                 .border(
                     width = 1.dp,
-                    color = if(isValid) CustomGray else Color.Red,
+                    color = if (isValid) CustomGray else Color.Red,
                 )
                 .padding(horizontal = 10.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
 
             Icon(
-                modifier = Modifier.size(24.dp).padding(imgPadding),
+                modifier = Modifier
+                    .size(24.dp)
+                    .padding(imgPadding),
                 painter = painterResource(id = img),
                 contentDescription = "Image",
                 tint = if (isValid) CustomGray else Color.Red
@@ -109,7 +112,9 @@ fun CustomTextFieldAndIcon(
                 },
                 placeholderText = if (isPassword) "password" else placeholder,
                 passwordVisible = passwordVisible.value,
-                keyboardOptions = if (isPassword) KeyboardOptions(keyboardType = KeyboardType.Password) else KeyboardOptions()
+                keyboardOptions = if (isPassword) KeyboardOptions(keyboardType = KeyboardType.Password) else KeyboardOptions(
+                    imeAction = ImeAction.Next
+                )
             )
 
             if (isPassword) {
