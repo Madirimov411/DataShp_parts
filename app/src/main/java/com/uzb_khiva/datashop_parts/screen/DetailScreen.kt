@@ -1,4 +1,4 @@
-@file:OptIn(ExperimentalFoundationApi::class)
+@file:OptIn(ExperimentalFoundationApi::class, ExperimentalFoundationApi::class)
 
 package com.uzb_khiva.datashop_parts.screen
 
@@ -117,7 +117,7 @@ fun DetailScreen(
 
                 ButtonCard(
                     modifier = Modifier
-                        .width(248.dp)
+                        .padding(horizontal = 40.dp)
                         .height(40.dp),
                     image = R.drawable.ic_shopping,
                     text = "Savatga qo'shish"
@@ -127,6 +127,7 @@ fun DetailScreen(
 
                 OutlineButtonCard(
                     modifier = Modifier
+                        .padding(horizontal = 40.dp)
                         .height(40.dp),
                     text = "Bir marta bosish bilan sotib oling"
                 ) {

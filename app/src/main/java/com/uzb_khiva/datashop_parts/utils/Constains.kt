@@ -3,9 +3,74 @@ package com.uzb_khiva.datashop_parts.utils
 import com.uzb_khiva.datashop_parts.R
 import com.uzb_khiva.datashop_parts.model.Category
 import com.uzb_khiva.datashop_parts.model.CategoryItem
+import com.uzb_khiva.datashop_parts.model.Filter
+import com.uzb_khiva.datashop_parts.model.FilterItem
 import com.uzb_khiva.datashop_parts.model.PCDetail
 import com.uzb_khiva.datashop_parts.model.Tuman
 import com.uzb_khiva.datashop_parts.model.Viloyat
+
+val filterViewList = listOf<Filter>(
+
+    Filter(
+        id = 1,
+        name = "Brend",
+        filterItem = listOf(
+            FilterItem(1, "HP", false),
+            FilterItem(2, "Dell", false),
+            FilterItem(3, "Lenovo", false),
+            FilterItem(4, "Asus", false),
+            FilterItem(5, "Acer", false),
+            FilterItem(6, "MSI", false)
+        )
+    ),
+    Filter(
+        id = 2,
+        name = "Videokarta",
+        filterItem = listOf(
+            FilterItem(1, "Radeon", false),
+            FilterItem(2, "Nvidia", false),
+        )
+    ),
+    Filter(
+        id = 3,
+        name = "Protsessor",
+        filterItem = listOf(
+            FilterItem(1, "Intel", false),
+            FilterItem(2, "AMD", false),
+
+            )
+    ),
+    Filter(
+        id = 4,
+        name = "Ram",
+        filterItem = listOf(
+            FilterItem(1, "4 GB", false),
+            FilterItem(2, "8 GB", false),
+            FilterItem(3, "16 GB", false),
+            FilterItem(4, "32 GB", false),
+        )
+    ),
+    Filter(
+        id = 5,
+        name = "Ekran",
+        filterItem = listOf(
+            FilterItem(1, "15.6", false),
+            FilterItem(2, "16.1", false),
+            FilterItem(3, "17.3", false),
+            FilterItem(4, "18.4", false),
+        )
+    ),
+    Filter(
+        id = 6,
+        name = "Xotira",
+        filterItem = listOf(
+            FilterItem(1, "256 GB", false),
+            FilterItem(2, "512 GB", false),
+            FilterItem(3, "1 TB", false),
+            FilterItem(4, "2 TB", false),
+        )
+    ),
+)
 
 val detailPC: PCDetail = PCDetail(
     id = 1,

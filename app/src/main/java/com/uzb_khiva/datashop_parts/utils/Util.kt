@@ -12,7 +12,10 @@ fun isEmailValid(email: String): Boolean {
     return Regex(pattern).matches(email)
 }
 
-fun isPasswordValid(password: String) = password.length >= 8
+fun isPasswordValid(password: String): Boolean {
+    val pattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=.!])(?=\\S+$).{8,32}$"
+    return Regex(pattern).matches(password)
+}
 
 
 fun getTumanByViloyatId(viloyatId: Int) = tumanlar.filter { it.viloyat_id == viloyatId }

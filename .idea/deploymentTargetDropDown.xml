@@ -2,19 +2,19 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-      <entry key="CustomDropdownMenuPreview">
+      <entry key="CategoryViewPreview">
         <State />
       </entry>
-      <entry key="CustomDropdownMenuPreview1">
+      <entry key="DetailScreenPreview">
         <State />
       </entry>
-      <entry key="CustomTextFieldAndIconPreview">
+      <entry key="FilterItemPreview">
+        <State />
+      </entry>
+      <entry key="FilterViewPreview">
         <State />
       </entry>
       <entry key="LoginAndRegisterViewPreview">
-        <State />
-      </entry>
-      <entry key="PersonalInfoScreenPreview">
         <State />
       </entry>
       <entry key="app">
